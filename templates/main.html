@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<style>
+    form {
+        margin: auto;
+        width: 35%;
+    }
+
+    .y1_pred {
+        margin: auto;
+        width: 35%
+        border: 1px solid #ccc;
+    }
+
+    .y2_pred {
+        margin: auto;
+        width: 35%
+        border: 1px solid #ccc;
+    }
+</style>
+
+<head>
+    <title>Прогнозирование модуля упругости и прочности при растяжении композитного материала</title>
+</head>
+
+<form action="{{url_for('main')}}", method="POST">
+    <fieldset>
+        <legend>Введите значение:</legend>
+        Соотношение матрица-наполнитель
+        <input name="var1", type="text"
+               required>
+        <br>
+        Плотность, кг/м3
+        <input name="var2", type="text"
+               required>
+        <br>
+        Модуль упругости, ГПа
+        <input name="var3", type="text"
+               required>
+        <br>
+        Количество отвердителя, м.%
+        <input name="var4", type="text"
+               required>
+        <br>
+        Содержание эпоксидных групп,%_2
+        <input name="var5", type="text"
+               required>
+        <br>
+        Температура вспышки, С_2
+        <input name="var6", type="text"
+               required>
+        <br>
+        Поверхностная плотность, г/м2
+        <input name="var7", type="text"
+               required>
+        <br>
+        Потребление смолы, г/м2
+        <input name="var8", type="text"
+               required>
+        <br>
+        Угол нашивки, град
+        <input name="var9", type="text"
+               required>
+        <br>
+        Шаг нашивки
+        <input name="var10", type="text"
+               required>
+        <br>
+        Плотность нашивки
+        <input name="var11", type="text"
+               required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+
+<div class="y1_pred", align="center">
+    {% if y1_pred %}
+        <br>
+        <br>
+        <p style="font-size:30px">
+            Прогнозируемый модуль упругости при растяжении
+        </p>
+        <p style="font-size:30px"> {{y1_pred}}</p>
+    {% endif %}
+</div>
+
+<div class="y2_pred", align="center">
+    {% if y2_pred %}
+        <br>
+        <br>
+        <p style="font-size:30px">
+            Прогнозируемая прочность при растяжении
+        </p>
+        <p style="font-size:30px"> {{y2_pred}}</p>
+    {% endif %}
+</div>
