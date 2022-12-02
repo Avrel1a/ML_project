@@ -1,15 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<style>
+    form {
+        margin: auto;
+        width: 35%;
+    }
+
+    .y1_pred {
+        margin: auto;
+        width: 35%
+        border: 1px solid #ccc;
+    }
+</style>
+
 <head>
-    <meta charset="UTF-8">
-    <title>ВКР</title>
+    <title>Прогнозирование модуля упругости и прочности при растяжении композитного материала</title>
 </head>
-<body>
-<h1>Выпускная квалификационная работа по курсу «Data Science»</h1>
-<h2>Прогнозирование конечных свойств новых материалов (композиционных материалов)</h2>
 
-<p><a href="/model_1_2/">Прогнозирование модуля упругости при растяжении и прочности при растяжении</a></p>
-<p><a href="/model_3/">Прогнозирование соотношения матрица-наполнитель</a></p>
+<form action="{{url_for('main')}}", method="POST">
+    <fieldset>
+        <legend>Введите значение:</legend>
+        Соотношение матрица-наполнитель
+        <input name="var1", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Плотность, кг/м3
+        <input name="var2", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Модуль упругости, ГПа
+        <input name="var3", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Количество отвердителя, м.%
+        <input name="var4", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Содержание эпоксидных групп,%_2
+        <input name="var5", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Температура вспышки, С_2
+        <input name="var6", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Поверхностная плотность, г/м2
+        <input name="var7", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Потребление смолы, г/м2
+        <input name="var8", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Угол нашивки, град
+        <input name="var9", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Шаг нашивки
+        <input name="var10", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        Плотность нашивки
+        <input name="var11", type="number", placeholder="Введите значение"
+               required>
+        <br>
+        <br>
+        <button value="Submit">Рассчитать</button>
+    </fieldset>
+</form>
 
-</body>
-</html>
+<div class="y1_pred", align="center">
+    {% if y1_pred %}
+        <br>
+        <br>
+        <p style="font-size:30px">
+            Прогнозируемый модуль упругости при растяжении
+        </p>
+        <p style="font-size:30px"> {{output_1}}</p>
+    {% endif %}
+</div>
+
+<div class="y2_pred", align="center">
+    {% if y2_pred %}
+        <br>
+        <br>
+        <p style="font-size:30px">
+            Прогнозируемая прочность при растяжении
+        </p>
+        <p style="font-size:30px"> {{output_2}}</p>
+    {% endif %}
+</div>
